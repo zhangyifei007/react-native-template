@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
-import Counter from './Counter';
-import styles from './Styles/App';
-import createStore from '../Redux';
-import { Provider } from 'react-redux';
+import React, { Component } from "react";
+import { View } from "react-native";
+import Counter from "./Counter";
+import styles from "./Styles/App";
+import createStore from "../Reducer";
+import { Provider } from "react-redux";
 
 // create our store
 const store = createStore();
@@ -18,4 +18,3 @@ export default class App extends Component {
     );
   }
 }
-

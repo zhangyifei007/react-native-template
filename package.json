@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "coverage": "jest --coverage && open coverage/lcov-report/index.html || xdg-open coverage/lcov-report/index.html",
+    "newclear": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build && npm cache clean --force && rm -rf node_modules/ && npm cache clean --force && npm i",
     "test": "jest"
   },
   "dependencies": {
-    "react": "16.6.0-alpha.8af6728",
+    "react": "^16.6.0-alpha.8af6728",
     "react-native": "0.57.4",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",
@@ -18,7 +20,7 @@
     "@types/jest": "^23.3.9",
     "@types/node": "^10.12.6",
     "@types/react": "^16.7.3",
-    "@types/react-native": "^0.57.7",
+    "@types/react-native": "^0.57.8",
     "@types/react-redux": "^6.0.9",
     "@types/react-test-renderer": "^16.0.3",
     "@types/redux": "^3.6.0",
@@ -26,11 +28,11 @@
     "babel-jest": "23.6.0",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.49.1",
-    "react-devtools": "^3.4.2",
     "react-native-typescript-transformer": "^1.2.10",
     "react-test-renderer": "16.6.0-alpha.8af6728",
+    "redux-devtools-extension": "^2.13.5",
     "ts-jest": "^23.10.4",
-    "tslint-config-airbnb": "^5.11.0",
+    "tslint": "^5.11.0",
     "typescript": "^3.1.6"
   },
   "jest": {
