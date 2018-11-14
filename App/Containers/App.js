@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import Example from './Example';
+import { View } from 'react-native';
+import Counter from './Counter';
 import styles from './Styles/App';
+import createStore from '../Redux';
+import { Provider } from 'react-redux';
 
+// create our store
+const store = createStore();
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Example enthusiasmLevel={10} name={'123'} />
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <Counter />
+        </View>
+      </Provider>
     );
   }
 }
