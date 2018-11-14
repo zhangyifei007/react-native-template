@@ -11,6 +11,7 @@
   "dependencies": {
     "react": "^16.6.0-alpha.8af6728",
     "react-native": "0.57.4",
+    "react-native-config": "^0.11.5",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.4",
@@ -46,7 +47,7 @@
       "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testRegex": "(/Tests/.*|\\.(Test|spec))\\.(ts|tsx|js)$",
     "testPathIgnorePatterns": [
       "\\.snap$",
       "<rootDir>/node_modules/",
