@@ -1,8 +1,7 @@
-import { all, fork } from "redux-saga/effects";
-import example from '../Sagas/Example'
+import { all } from "redux-saga/effects";
 
 export default function* root() {
   yield all([
-    yield fork(example)
+    // some sagas only receive an action
   ]);
 }

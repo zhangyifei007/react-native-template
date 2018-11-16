@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import configureStore from "./CreateStore";
 import rootSaga from "../Sagas";
-import example from "./Example";
+import counter from "./Counter";
 
 const rootReducer = combineReducers({
-  ...example
+  counter
 });
 
 export default () => {

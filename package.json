@@ -4,14 +4,13 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "start:ios": "react-native run-ios",
     "coverage": "jest --coverage && open coverage/lcov-report/index.html || xdg-open coverage/lcov-report/index.html",
+    "newclear": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build && npm cache clean --force && rm -rf node_modules/ && npm cache clean --force && npm i",
     "test": "jest"
   },
   "dependencies": {
     "react": "^16.6.0-alpha.8af6728",
     "react-native": "0.57.4",
-    "react-native-code-push": "^5.4.2",
     "react-native-config": "^0.11.5",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",
