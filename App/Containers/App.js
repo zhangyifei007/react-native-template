@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import { View } from "react-native";
-import Counter from "./Counter";
+import Example from "./Example";
 import styles from "./Styles/App";
-import createStore from "../Reducer";
+import createStore from "../Reducer/index";
 import { Provider } from "react-redux";
 
 // create our store
 const store = createStore();
-export default class App extends Component {
+class App extends Component {
+
   render() {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <Counter />
+          <Example />
         </View>
       </Provider>
     );
   }
 }
+
+export default App;

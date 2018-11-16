@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   root: {
+    marginTop: 100,
     alignItems: 'center',
     alignSelf: 'center',
   },
@@ -20,4 +21,12 @@ export default StyleSheet.create({
     color: '#999',
     fontWeight: 'bold',
   },
+  fetchButton: {
+    marginTop: 100,
+  },
+  people: {
+    flexDirection: 'row',
+    width: 100,
+    justifyContent: 'space-between',
+  }
 });

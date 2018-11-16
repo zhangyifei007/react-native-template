@@ -1,34 +1,38 @@
 import React from "react";
-import { Button, Text, View } from "react-native";
+import { Button, Text, View, FlatList } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import styles from "./Styles/Counter";
-import { Actions } from "../Reducer/Counter";
+import styles from "./Styles/Example";
+import { Actions } from "../Reducer/Example";
 
 interface Props {
   counter: any;
+  people: any;
   increment: (num: Number) => void;
   decrement: (num: Number) => void;
+  fetchPeople: () => void;
 }
 
 const mapStateToProps = (state: any) => {
-  const { counter } = state;
+  const { counter, people } = state;
   return {
-    counter
+    counter,
+    people,
   };
 };
 
 const mapDispatchToProps = (dispatch: any) =>
   bindActionCreators(Actions, dispatch);
 
-class Counter extends React.Component<Props> {
+class Example extends React.Component<Props> {
   render() {
-    const { counter, increment, decrement } = this.props;
+    const { counter, increment, decrement, fetchPeople, people } = this.props;
+    const { peopleList } = people;
+    console.log(peopleList)
 
     return (
       <View style={styles.root}>
         <Text style={styles.greeting}>{counter.counter}</Text>
-
         <View style={styles.buttons}>
           <View style={styles.button}>
             <Button
@@ -48,6 +52,24 @@ class Counter extends React.Component<Props> {
             />
           </View>
         </View>
+        <View style={styles.fetchButton}>
+          <Button
+            title="获取数据"
+            onPress={_e => fetchPeople()}
+            accessibilityLabel="increment"
+            color="blue"
+          />
+        </View>
+        <FlatList
+          keyExtractor={(_item, index) => `${index}`}
+          data={peopleList}
+          renderItem={({item}: any) => (
+            <View style={styles.people}>
+              <Text>{item.name}</Text>
+              <Text>{item.age}</Text>
+            </View>
+          )}
+        />
       </View>
     );
   }
@@ -56,4 +78,4 @@ class Counter extends React.Component<Props> {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Counter);
+)(Example);
